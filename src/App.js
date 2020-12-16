@@ -5,8 +5,7 @@ import Logout from './components/logout';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import ShowComments from './components/showComments';
 import Home from './components/home';

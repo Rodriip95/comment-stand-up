@@ -20,6 +20,11 @@ export default function Home(){
                             <img className="photo" style={{borderRadius:"100%"}} src={maxi} alt="foto de Maxi"/>
                         </a>
                     </div>
+                    <div className="col-12">
+                        <div className="p-2 d-flex justify-content-center">
+                        <p style={{width:"70%", textAlign:"center"}}>We are Rodri and Maxi, Henry's tutors of a group of students. We decided to create this App so that our students can leave us their opinion about our classes and, in the future, make this App together.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
