@@ -28,7 +28,7 @@ export default function Logout(){
         <>
         {showLogin &&
             <div className="d-flex justify-content-center mt-3">
-                <button className="btn" style={{border:"2px solid yellow", color:"yellow", width:"20%"}} onClick={handlerLogout}>
+                <button className="btn logout" style={{border:"2px solid yellow", color:"yellow"}} onClick={handlerLogout}>
                     Logout
                 </button>
             </div>}

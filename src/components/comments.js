@@ -80,7 +80,7 @@ export default function Comments() {
             <span style={{float:"right"}}>{comentario.length}/120</span>
           </div>
             <div className="col-12 d-flex justify-content-center my-3">
-              <button type="submit" disabled={titulo.length == 0 && "true"} className="btn p-2" style={{backgroundColor:"yellow",width:"70%"}}>Enviar</button>
+              <button type="submit" disabled={titulo.length == 0 && "true"} className="btn p-2 botones-largos" style={{backgroundColor:"yellow"}}>Send</button>
             </div>
         </div>
       </form>

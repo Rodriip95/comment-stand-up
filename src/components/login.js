@@ -27,13 +27,13 @@ export default function Login(){
         <>
             {!showLogin ? (
                 <div className="d-flex justify-content-center">
-                    <button onClick={handlerLogin} className="btn p-2" style={{backgroundColor:"yellow", width:"70%"}}>
+                    <button onClick={handlerLogin} className="btn p-2 botones-largos" style={{backgroundColor:"yellow"}}>
                         <ion-icon name="logo-google"/> <span> Sign in with Google</span>
                     </button>
                 </div>
             ) : (
                 <div className="d-flex justify-content-center">
-                    <button className="btn p-2" style={{backgroundColor:"yellow", width:"70%"}} onClick={()=>locally.push('/comment')}>
+                    <button className="btn p-2 botones-largos" style={{backgroundColor:"yellow"}} onClick={()=>locally.push('/comment')}>
                         Write comment
                     </button>
                 </div>

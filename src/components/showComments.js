@@ -3,6 +3,8 @@ import {getFirestore} from '../firebase'
 
 export default function ShowComments(){
     const [comentarios, setComments] = useState([])
+    const [loading, setLoad] = useState(false)
+
     useEffect(()=>{
         const db = getFirestore()
         const collection = db.collection("comentarios")
@@ -12,30 +14,30 @@ export default function ShowComments(){
             if (querySnapshot.size === 0) {
               console.log("No hay resultados");
             }
-            // querySnapshot.docs.map(doc => {
-            //     setComments(
-            //         [...comentarios,
-            //         {
-            //             id: doc.id,
-                        
-            //         }
-            //     ])
-            // })
             setComments(querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()})))
+            setLoad(true)
           });
-    },[])
+    },[loading])
 
     function handlerLike(comment){
-        console.log("ASd")
         const db = getFirestore()
         const collection = db.collection("comentarios").doc(comment.id)
         .update({...comment, like: comment.like + 1})
-        .then(r => console.log("Like!!!"))
+        .then(r => setLoad(false))
         .catch(er => console.log("Error like"))
     }
 
-    return(
+    return( 
+    <>
+        { !loading ? (
+            <div className="d-flex justify-content-center mt-3">
+                <div className="spinner-grow text-warning" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            ) : (
         <div className="container my-3">
+            <div className="contenedor-fotos mx-auto">
             <h2 style={{color:"yellow"}}>Comments</h2>
             {comentarios.map((comment)=>(
                 <div key={comment.id} className="my-3 mx-2 row" style={{backgroundColor:"white", borderRadius:"8px", padding:"10px 0"}}>
@@ -60,6 +62,8 @@ export default function ShowComments(){
                     </div>
                 </div>
             ))}
-        </div>
+            </div>
+        </div> )}
+    </>
     )
 }
