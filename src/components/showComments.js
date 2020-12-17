@@ -39,7 +39,7 @@ export default function ShowComments(){
         <div className="container my-3">
             <div className="contenedor-fotos mx-auto">
             <h2 style={{color:"yellow"}}>Comments</h2>
-            {comentarios.map((comment)=>(
+            {comentarios.map((comment)=> !comment.anonimo ? (
                 <div key={comment.id} className="my-3 mx-2 row" style={{backgroundColor:"white", borderRadius:"8px", padding:"10px 0"}}>
                     <div className="col-4">
                         <img style={{borderRadius:"100%"}} src={comment.usuario.foto} alt={comment.usuario.nombre}/>
@@ -47,6 +47,27 @@ export default function ShowComments(){
                     <div className="col-8">
                         <h4>{comment.usuario.nombre}</h4>
                         <p>{comment.usuario.email}</p>
+                        <p style={{textAlign:"end"}}>{comment.fecha}</p>
+                    </div>
+                    <div className="col-12 pt-3">
+                        <h5>{comment.titulo}</h5>
+                    </div>
+                    <div className="col-12">
+                        <p>{comment.comentario}</p>
+                    </div>
+                    <div className="col-12">
+                        <button onClick={() => handlerLike(comment)} className="btn" style={{float:"right"}}>
+                            <ion-icon style={{color:"red"}} name="heart"></ion-icon> {comment.like}
+                        </button>
+                    </div>
+                </div>
+            ) : (
+                <div key={comment.id} className="my-3 mx-2 row" style={{backgroundColor:"white", borderRadius:"8px", padding:"10px 0"}}>
+                    <div className="col-4">
+                        <img style={{borderRadius:"100%", width:"100px"}} src="https://www.adl-logistica.org/wp-content/uploads/2019/07/imagen-perfil-sin-foto.png" alt={comment.usuario.nombre}/>
+                    </div>
+                    <div className="col-8">
+                        <h4>Anonymous user</h4>
                         <p style={{textAlign:"end"}}>{comment.fecha}</p>
                     </div>
                     <div className="col-12 pt-3">
