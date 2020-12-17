@@ -11,7 +11,7 @@ export default function Footer(){
                     </div>
                 </div>
                 <div className="pt-1 col-8 ">
-                    <p style={{textAlign:"center"}}>App made from students @SoyHenry</p>
+                    <p style={{textAlign:"center"}}>App made by students @SoyHenry</p>
                 </div>
                 <div className="col-2">
                     <div style={{textAlign:"center"}}>
